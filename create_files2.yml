@@ -1,0 +1,11 @@
+---
+- name: Create Files Playbook
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Create files
+      file:
+        path: "/root/papk{{ item }}"
+        state: touch
+      loop: "{{ range(1, 10)|list }}"
+
